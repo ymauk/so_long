@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:29 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/05 12:26:01 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/08 14:52:37 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ void	checking_contain(char **map)
 	ecp = 'E';
 	counter = checking_contain2(map, ecp);
 	if (counter != 1)
-		error_handling(1);
+		error_handling(1, map);
 	ecp = 'C';
 	counter = checking_contain2(map, ecp);
 	if (counter < 1)
-		error_handling(1);
+		error_handling(1, map);
 	ecp = 'P';
 	counter = checking_contain2(map, ecp);
 	if (counter != 1)
-		error_handling(1);
+		error_handling(1, map);
 }
 
 int	checking_contain2(char **map, char ecp)
@@ -78,7 +78,7 @@ void	checking_rectangle(char **map)
 	{
 		number_rest_column = counting_columns2(map, i);
 		if (number_first_column != number_rest_column)
-			error_handling(2);
+			error_handling(2, map);
 		i++;
 	}
 }
@@ -93,8 +93,6 @@ void	checking_walls(char **map)
 	i = 0;
 	rows = counting_rows(map);
 	columns = counting_columns(map);
-	printf("rows: %d\n", rows);
-	printf("cplimns: %d\n", columns);
 	while (map[i] != NULL)
 	{
 		j = 0;
@@ -102,7 +100,7 @@ void	checking_walls(char **map)
 		{
 			if (map[0][j] != '1' || map[rows - 1][j] != '1' ||
 				map[i][0] != '1' || map[i][columns - 1] != '1')
-				error_handling(3);
+				error_handling(3, map);
 			j++;
 		}
 		i++;

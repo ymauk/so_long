@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 10:06:36 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/04 12:36:25 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/08 11:19:35 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	int		j;
 
 	if (s1 == NULL)
-		s1 = ft_strdup("");
+		s1 = ft_strdup_gnl("");
 	if (s2 == NULL)
 		return (NULL);
 	join = malloc (sizeof(char) * (ft_strlen_gnl(s1) + ft_strlen_gnl(s2)) + 1);
@@ -94,7 +94,7 @@ char	*ft_substr_gnl(char *s, unsigned int start, size_t len)
 	return (str);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup_gnl(const char *s1)
 {
 	int		i;
 	char	*ptr;

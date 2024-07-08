@@ -6,11 +6,12 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:15:22 by ymauk             #+#    #+#             */
-/*   Updated: 2024/03/20 12:55:00 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/08 12:21:13 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 // copying s1 in a new ptr
 char	*ft_strdup(const char *s1)
 {
