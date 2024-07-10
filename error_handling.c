@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/09 15:29:42 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/10 09:14:02 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 void	error_handling(int number_error, char **map)
 {
+	if (number_error == 0)
+		ft_printf("Your arguments are not valid!\n");
 	if (number_error == 1)
 		ft_printf("Your map is not correctly filled with C.E.Ps!\n");
 	else if (number_error == 2)

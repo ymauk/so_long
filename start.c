@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handling_window.c                                  :+:      :+:    :+:   */
+/*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 11:53:45 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/09 12:35:30 by ymauk            ###   ########.fr       */
+/*   Created: 2024/07/10 09:10:36 by ymauk             #+#    #+#             */
+/*   Updated: 2024/07/10 09:31:28 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,19 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	window_size(char **created_map, t_window *size_w)
+char	**start(int argc, char **argv)
 {
-	size_w->x = counting_columns(created_map);
-	size_w->y = counting_rows(created_map);
-}
+	char	**created_map;
 
+	created_map = NULL;
+	if (argc == 2)
+	{
+		if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
+			error_handling('0', created_map);
+		created_map = map(argv);
+		checking_map(created_map);
+	}
+	else
+		error_handling('0', created_map);
+	return (created_map);
+}

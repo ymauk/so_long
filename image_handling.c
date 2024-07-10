@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:06:16 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/09 16:52:41 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/10 11:01:12 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <fcntl.h>
 #include <stdio.h>
 
+void	window_size(char **created_map, t_window *size_w)
+{
+	size_w->x = counting_columns(created_map);
+	size_w->y = counting_rows(created_map);
+}
 
 void	handling_images(t_vars *data, char **map, t_window *size_w)
 {

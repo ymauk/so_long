@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:05:20 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/09 16:45:53 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/10 10:23:27 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_vars
 	mlx_t			*mlx;
 	mlx_texture_t	*texture;
 	mlx_image_t		*img;
+	mlx_key_data_t	keydata;
+
+	char			**map;
 
 }	t_vars;
 
@@ -71,5 +74,9 @@ void		handling_images(t_vars *data, char **map, t_window *size_w);
 void		place_image(char **map, char comp, t_window *size_w, t_vars *data);
 void		exc_image(t_vars *data, t_window *size_w, char **map, char comp);
 void		place_ground(char **map, t_window *size_w, t_vars *data);
+
+char		**start(int argc, char **argv);
+
+void		my_keyhook(mlx_key_data_t keydata, void *param);
 
 #endif
