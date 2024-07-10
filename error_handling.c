@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/08 15:08:18 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/09 15:29:42 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void	error_handling(int number_error, char **map)
 		ft_printf("Your map has no valid path!\n");
 	else if (number_error == 6)
 		ft_printf("Allocation failed!\n");
+	else if (number_error == 7)
+		ft_printf("loadimg png has failed!\n");
+	else if (number_error == 8)
+		ft_printf("texture to image has failed!\n");
+	else if (number_error == 9)
+		ft_printf("image to window has failed!\n");
 	free_map(map);
 	exit(1);
 }
