@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:56:01 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/08 12:26:20 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/11 16:02:57 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,26 @@ char	**duplicate_map(char **map, char **map_dup)
 	}
 	map_dup[i] = NULL;
 	return (map_dup);
+}
+
+void	find_player(t_vars *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map[i] != NULL)
+	{
+		j = 0;
+		while (data->map[i][j] != '\0' && data->map[i][j] != '\n')
+		{
+			if (data->map[i][j] == 'C')
+			{
+				data->p_x = j * 32;
+				data->p_y = i * 32;
+				j++;
+			}
+			i++;
+		}
+	}
 }

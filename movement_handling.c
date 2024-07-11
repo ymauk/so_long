@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:49:04 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/10 11:14:21 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/11 16:34:55 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	my_keyhook(mlx_key_data_t keydata, void *param)
+void	keyhook(mlx_key_data_t keydata, void *param)
 {
 	t_vars	*data;
 
+	data = param;
 	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		move_up(data);
@@ -32,24 +33,83 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		move_right(data);
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	{
+		mlx_delete_image(data->mlx, data->img);
+		free_map(data->map);
+		mlx_close_window(data->mlx);
+		//noch unklar ob alles funktioniert
+	}
 }
 
 void	move_up(t_vars *data)
 {
-	data->img->instances[0].y += 32;
+	int	x;
+	int	y;
+
+	x = data->p_x / 32;
+	y = data->p_y / 32;
+	if (y > 0 && data->map[y - 1][x] != '1')
+	{
+		data->player_img->instances[0].y -= 32;
+		data->p_x = data->player_img->instances[0].x;
+		data->p_y = data->player_img->instances[0].y;
+		data->counter++;
+		// collectable_exit(data, x, y);
+		ft_printf("Steps made: %d\n", data->counter);
+	}
 }
 
 void	move_down(t_vars *data)
 {
-	data->img->instances[0].y -= 32;
+	int	x;
+	int	y;
+
+	x = data->p_x / 32;
+	y = data->p_y / 32;
+	if (data->map[y + 1][x] != '1')
+	{
+		data->player_img->instances[0].y += 32;
+		data->p_x = data->player_img->instances[0].x;
+		data->p_y = data->player_img->instances[0].y;
+		data->counter++;
+		// collectable_exit(data, x, y);
+		ft_printf("Steps made: %d\n", data->counter);
+	}
 }
 
 void	move_left(t_vars *data)
 {
-	data->img->instances[0].x -= 32;
+	int	x;
+	int	y;
+
+	x = data->p_x / 32;
+	y = data->p_y / 32;
+	if (data->map[y][x - 1] != '1')
+	{
+		data->player_img->instances[0].x -= 32;
+		data->p_x = data->player_img->instances[0].x;
+		data->p_y = data->player_img->instances[0].y;
+		data->counter++;
+		// collectable_exit(data, x, y);
+		ft_printf("Steps made: %d\n", data->counter);
+	}
 }
 
 void	move_right(t_vars *data)
 {
-	data->img->instances[0].x += 32;
+	int	x;
+	int	y;
+
+	x = data->p_x / 32;
+	y = data->p_y / 32;
+	if (data->map[y][x + 1] != '1')
+	{
+		data->player_img->instances[0].x += 32;
+		data->p_x = data->player_img->instances[0].x;
+		data->p_y = data->player_img->instances[0].y;
+		data->counter++;
+		// collectable_exit(data, x, y);
+		ft_printf("Steps made: %d\n", data->counter);
+	}
 }

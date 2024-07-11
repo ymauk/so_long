@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:06:16 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/10 11:01:12 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/11 16:50:13 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,85 +16,84 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	window_size(char **created_map, t_window *size_w)
+void	create_images(t_vars *data)
 {
-	size_w->x = counting_columns(created_map);
-	size_w->y = counting_rows(created_map);
+	data->textures[P] = mlx_load_png("textures/player.png");
+	data->textures[C] = mlx_load_png("textures/collectable.png");
+	data->textures[W] = mlx_load_png("textures/wall.png");
+	data->textures[G] = mlx_load_png("textures/ground.png");
+	data->textures[E] = mlx_load_png("textures/exit.png");
+	data->image[P] = mlx_texture_to_image(data->mlx, data->textures[P]);
+	data->image[C] = mlx_texture_to_image(data->mlx, data->textures[C]);
+	data->image[W] = mlx_texture_to_image(data->mlx, data->textures[W]);
+	data->image[G] = mlx_texture_to_image(data->mlx, data->textures[G]);
+	data->image[E] = mlx_texture_to_image(data->mlx, data->textures[E]);
 }
 
-void	handling_images(t_vars *data, char **map, t_window *size_w)
+void	handling_images(t_vars *data)
 {
-	place_ground(map, size_w, data);
-	place_image(map, '1', size_w, data);
-	place_image(map, 'E', size_w, data);
-	place_image(map, 'C', size_w, data);
-	place_image(map, 'P', size_w, data);
+	create_images(data);
+	place_g_w(data);
+	place_c_e(data);
+	place_p(data);
 }
 
-void	place_ground(char **map, t_window *size_w, t_vars *data)
+void	place_g_w(t_vars *data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map[i] != NULL)
+	while (data->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0' && map[i][j] != '\n')
+		while (data->map[i][j] != '\0' && data->map[i][j] != '\n')
 		{
-			size_w->x = j * 32;
-			size_w->y = i * 32;
-			exc_image(data, size_w, map, '0');
+			mlx_image_to_window(data->mlx, data->image[G], j * 32, i * 32);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	place_image(char **map, char comp, t_window *size_w, t_vars *data)
+void	place_c_e(t_vars *data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map[i] != NULL)
+	while (data->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0' && map[i][j] != '\n')
+		while (data->map[i][j] != '\0' && data->map[i][j] != '\n')
 		{
-			if (map[i][j] == comp)
-			{
-				size_w->x = j * 32;
-				size_w->y = i * 32;
-				exc_image(data, size_w, map, comp);
-			}
+			if (data->map[i][j] == '1')
+				mlx_image_to_window(data->mlx, data->image[W], j * 32, i * 32);
+			if (data->map[i][j] == 'C')
+				mlx_image_to_window(data->mlx, data->image[C], j * 32, i * 32);
+			if (data->map[i][j] == 'E')
+				mlx_image_to_window(data->mlx, data->image[E], j * 32, i * 32);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	exc_image(t_vars *data, t_window *size_w, char **map, char comp)
+void	place_p(t_vars *data)
 {
-	char	*image;
+	int	i;
+	int	j;
 
-	if (comp == '1')
-		image = "./textures/wall.png";
-	else if (comp == '0')
-		image = "./textures/ground.png";
-	else if (comp == 'C')
-		image = "./textures/collectable.png";
-	else if (comp == 'E')
-		image = "./textures/exit.png";
-	else if (comp == 'P')
-		image = "./textures/player.png";
-	data->texture = mlx_load_png(image);
-	if (!data->texture)
-		error_handling(7, map);
-	data->img = mlx_texture_to_image(data->mlx, data->texture);
-	if (!data->img)
-		error_handling(8, map);
-	if (mlx_image_to_window(data->mlx, data->img, size_w->x, size_w->y) > 0)
-		error_handling(9, map);
+	i = 0;
+	while (data->map[i] != NULL)
+	{
+		j = 0;
+		while (data->map[i][j] != '\0' && data->map[i][j] != '\n')
+		{
+			if (data->map[i][j] == 'P')
+				mlx_image_to_window(data->mlx, data->image[P], j * 32, i * 32);
+			j++;
+		}
+		i++;
+	}
 }
-
