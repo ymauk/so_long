@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:49:04 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/11 16:34:55 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 09:22:41 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	move_up(t_vars *data)
 		data->p_x = data->player_img->instances[0].x;
 		data->p_y = data->player_img->instances[0].y;
 		data->counter++;
-		// collectable_exit(data, x, y);
+		collectable_exit(data, x, y);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
@@ -73,7 +73,7 @@ void	move_down(t_vars *data)
 		data->p_x = data->player_img->instances[0].x;
 		data->p_y = data->player_img->instances[0].y;
 		data->counter++;
-		// collectable_exit(data, x, y);
+		collectable_exit(data, x, y);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
@@ -91,7 +91,7 @@ void	move_left(t_vars *data)
 		data->p_x = data->player_img->instances[0].x;
 		data->p_y = data->player_img->instances[0].y;
 		data->counter++;
-		// collectable_exit(data, x, y);
+		collectable_exit(data, x, y);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
@@ -109,7 +109,7 @@ void	move_right(t_vars *data)
 		data->p_x = data->player_img->instances[0].x;
 		data->p_y = data->player_img->instances[0].y;
 		data->counter++;
-		// collectable_exit(data, x, y);
+		collectable_exit(data, x, y);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
