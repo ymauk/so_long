@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:06:16 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/11 16:50:13 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 11:22:23 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ void	place_c_e(t_vars *data)
 			if (data->map[i][j] == '1')
 				mlx_image_to_window(data->mlx, data->image[W], j * 32, i * 32);
 			if (data->map[i][j] == 'C')
+			{
 				mlx_image_to_window(data->mlx, data->image[C], j * 32, i * 32);
+				data->amount_c += 1;
+			}
 			if (data->map[i][j] == 'E')
 				mlx_image_to_window(data->mlx, data->image[E], j * 32, i * 32);
 			j++;
