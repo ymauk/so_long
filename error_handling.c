@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/10 09:14:02 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 16:47:10 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	error_handling(int number_error, char **map)
 		ft_printf("texture to image has failed!\n");
 	else if (number_error == 9)
 		ft_printf("image to window has failed!\n");
-	free_map(map);
+	free_all(map);
 	exit(1);
 }

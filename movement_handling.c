@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:49:04 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 12:49:38 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 16:30:35 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,7 @@ void	keyhook(mlx_key_data_t keydata, void *param)
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		move_right(data);
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-	{
-		mlx_delete_image(data->mlx, data->img);
-		free_map(data->map);
 		mlx_close_window(data->mlx);
-		//noch unklar ob alles funktioniert
-	}
 }
 
 void	move_up(t_vars *data)

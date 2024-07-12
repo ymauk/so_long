@@ -1,6 +1,6 @@
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -I ./include -I $(MLX)/include
-SRCS_MANDATORY = so_long.c creating_map.c checking_map.c error_handling.c help.c checking_map2.c checking_map3.c free_map.c\
+SRCS_MANDATORY = so_long.c creating_map.c checking_map.c error_handling.c help.c checking_map2.c checking_map3.c free_all.c\
 				image_handling.c start.c movement_handling.c help2.c
 OBJS = $(SRCS_MANDATORY:.c=.o)
 LIBFT = lib/Libft

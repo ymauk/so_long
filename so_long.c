@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:13:55 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 11:13:09 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 16:33:56 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int argc, char **argv)
 	data.map = start(argc, argv);
 	window_size(data.map, &size_w);
 	data.mlx = mlx_init(size_w.x * 32, size_w.y * 32, "so_long", true);
+	mlx_set_window_limit(data.mlx, size_w.x * 32,
+		size_w.y * 32, size_w.x * 32, size_w.y * 32);
 	data.c_counter = 0;
 	data.amount_c = 0;
 	handling_images(&data);
@@ -31,5 +33,7 @@ int	main(int argc, char **argv)
 	// display_counter(&data);
 	mlx_key_hook(data.mlx, keyhook, &data);
 	mlx_loop(data.mlx);
+	free_all(&data);
+	mlx_terminate(data.mlx);
 	return (0);
 }

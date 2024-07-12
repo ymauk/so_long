@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_map.c                                         :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:02:41 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/08 15:07:04 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 16:46:54 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,21 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	free_map(char **map)
+void	free_all(t_vars *data)
 {
 	int	i;
 
 	i = 0;
-	while (map[i] != NULL)
+	while (data->map[i] != NULL)
 	{
-		free (map[i]);
+		free (data->map[i]);
 		i++;
 	}
-	free (map);
+	free (data->map);
+	i = 0;
+	while (i < TEXTURES)
+	{
+		free(data->textures[i]);
+		i++;
+	}
 }

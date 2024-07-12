@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 12:49:28 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 13:00:21 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 16:06:59 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,16 @@ void	check_z_instances(t_vars *data)
 
 void	display_text(t_vars *data)
 {
-	int	x;
-	int	y;
+	int	x1;
+	int	y1;
+	int	x2;
+	int	y2;
 
-	x = counting_columns(data->map);
-	y = counting_rows(data->map);
+	x1 = ((counting_columns(data->map) + 125) / 2);
+	y1 = (counting_rows(data->map));
+	x2 = (counting_columns(data->map) + 115 / 2);
+	y2 = y1 + 30;
 	place_g_w(data);
-	mlx_put_string(data->mlx, "You won", x, y);
+	mlx_put_string(data->mlx, "Congratulations, you won :)", x1, y2);
+	mlx_put_string(data->mlx, "Please press enter to exit!", x2, y2 + 60);
 }

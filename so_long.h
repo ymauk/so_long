@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:05:20 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 12:58:26 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/12 16:44:00 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void		find_player(t_vars *data);
 
 void		error_handling(int number_error, char **map);
 
-void		free_map(char **map);
+void		free_all(t_vars *data);;
 
 void		window_size(char **created_map, t_window *size_w);
 void		collectable_exit(t_vars *data, int x, int y);
