@@ -6,7 +6,11 @@
 /*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/07/14 13:00:37 by yannismauk       ###   ########.fr       */
+=======
+/*   Updated: 2024/07/14 17:01:42 by ymauk            ###   ########.fr       */
+>>>>>>> 14Juli 17:34 Aktuellster Stand
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +42,10 @@ void	error_handling(int number_error, t_vars *data)
 		ft_printf("texture to image has failed!\n");
 	else if (number_error == 9)
 		ft_printf("image to window has failed!\n");
+<<<<<<< HEAD
 	free_all(data);
+=======
+	free_map(data);
+>>>>>>> 14Juli 17:34 Aktuellster Stand
 	exit(1);
 }

@@ -6,7 +6,11 @@
 /*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:35:11 by ymauk             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/07/14 13:10:55 by yannismauk       ###   ########.fr       */
+=======
+/*   Updated: 2024/07/14 17:15:05 by ymauk            ###   ########.fr       */
+>>>>>>> 14Juli 17:34 Aktuellster Stand
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +28,10 @@ void	checking_accessibility(t_vars *data)
 
 	p_position = find_p_position(data);
 	map_dup = (char **)malloc((counting_rows(data) + 1) * sizeof(char *));
+<<<<<<< HEAD
+=======
+	rows_check = counting_rows(data);
+>>>>>>> 14Juli 17:34 Aktuellster Stand
 	if (map_dup == NULL)
 		error_handling(6, data);
 	map_dup = duplicate_map(data, map_dup);
@@ -31,6 +39,10 @@ void	checking_accessibility(t_vars *data)
 	size.y = counting_rows(data);
 	flood_fill(map_dup, size, p_position);
 	check_flood_fill(map_dup, data);
+<<<<<<< HEAD
+=======
+	free_map_dup(map_dup);
+>>>>>>> 14Juli 17:34 Aktuellster Stand
 }
 
 t_point	find_p_position(t_vars *data)

@@ -6,7 +6,11 @@
 /*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:56:01 by ymauk             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/07/14 12:51:29 by yannismauk       ###   ########.fr       */
+=======
+/*   Updated: 2024/07/14 16:53:37 by ymauk            ###   ########.fr       */
+>>>>>>> 14Juli 17:34 Aktuellster Stand
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +45,13 @@ int	counting_columns2(t_vars *data, int which_row)
 	int	colums;
 
 	colums = 0;
+<<<<<<< HEAD
 	while (data->map[which_row][colums] != '\0'
 		&& data->map[which_row][colums] != '\n')
+=======
+	while (data->map[which_row][colums] != '\0' &&
+		data->map[which_row][colums] != '\n')
+>>>>>>> 14Juli 17:34 Aktuellster Stand
 		colums++;
 	return (colums);
 }
