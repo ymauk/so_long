@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:05:20 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 13:06:26 by yannismauk       ###   ########.fr       */
+/*   Updated: 2024/07/14 16:10:15 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void		find_player(t_vars *data);
 void		error_handling(int number_error, t_vars *data);
 
 void		free_all(t_vars *data);
-void	free_map_dup(char **map_dup);
+void		free_map_dup(char **map_dup);
 
 void		window_size(t_vars *data, t_window *size_w);
 void		collectable_exit(t_vars *data, int x, int y);
