@@ -6,11 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:05:20 by ymauk             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/07/14 16:10:15 by ymauk            ###   ########.fr       */
-=======
-/*   Updated: 2024/07/14 17:17:04 by ymauk            ###   ########.fr       */
->>>>>>> 14Juli 17:34 Aktuellster Stand
+/*   Updated: 2024/07/14 17:43:54 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +57,7 @@ typedef struct s_vars
 
 }	t_vars;
 
-<<<<<<< HEAD
 void		map(char **argv, t_vars *data);
-=======
-void		map(char **argvm, t_vars *data);
->>>>>>> 14Juli 17:34 Aktuellster Stand
 int			count_rows(int fd);
 int			count_rows2(char *part_buffer, int counter, int i);
 
@@ -91,13 +83,8 @@ void		find_player(t_vars *data);
 
 void		error_handling(int number_error, t_vars *data);
 
-<<<<<<< HEAD
 void		free_all(t_vars *data);
 void		free_map_dup(char **map_dup);
-=======
-void		free_map(t_vars *data);
-void		free_map_dup(char **map);
->>>>>>> 14Juli 17:34 Aktuellster Stand
 
 void		window_size(t_vars *data, t_window *size_w);
 void		collectable_exit(t_vars *data, int x, int y);
@@ -109,11 +96,7 @@ void		place_c_e(t_vars *data);
 void		place_g_w(t_vars *data);
 void		place_p(t_vars *data);
 
-<<<<<<< HEAD
 void		start(int argc, char **argv, t_vars *data);
-=======
-void	start(int argc, char **argv, t_vars *data);
->>>>>>> 14Juli 17:34 Aktuellster Stand
 
 void		keyhook(mlx_key_data_t keydata, void *param);
 void		move_up(t_vars *data);
