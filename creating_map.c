@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creating_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:54:50 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/08 16:27:10 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 12:59:09 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,27 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-char	**map(char **argv)
+void	map(char **argv, t_vars *data)
 {
 	int		rows_in_map;
 	int		fd;
-	char	**map;
 	int		i;
 
 	fd = open(argv[1], O_RDONLY);
 	rows_in_map = count_rows(fd);
 	close(fd);
 	fd = open(argv[1], O_RDONLY);
-	map = (char **)malloc((rows_in_map) * sizeof(char));
-	if (map == NULL)
-		return (0);
+	data->map = (char **)malloc((rows_in_map) * sizeof(char));
+	if (data->map == NULL)
+		error_handling(6, data);
 	i = 0;
 	while (rows_in_map >= i)
 	{
-		map[i] = get_next_line(fd);
+		data->map[i] = get_next_line(fd);
 		i++;
 	}
-	map[i] = NULL;
+	data->map[i] = NULL;
 	close (fd);
-	return (map);
 }
 
 int	count_rows(int fd)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking_map2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:35:11 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/09 11:51:53 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 13:10:55 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,24 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	checking_accessibility(char **map)
+void	checking_accessibility(t_vars *data)
 {
 	char	**map_dup;
 	t_point	size;
 	t_point	p_position;
-	int		rows_check;
 
-	p_position = find_p_position(map);
-	map_dup = (char **)malloc((counting_rows(map) + 1) * sizeof(char *));
-	rows_check = counting_rows(map);
+	p_position = find_p_position(data);
+	map_dup = (char **)malloc((counting_rows(data) + 1) * sizeof(char *));
 	if (map_dup == NULL)
-		error_handling(6, map);
-	map_dup = duplicate_map(map, map_dup);
-	size.x = counting_columns(map);
-	size.y = counting_rows(map);
+		error_handling(6, data);
+	map_dup = duplicate_map(data, map_dup);
+	size.x = counting_columns(data);
+	size.y = counting_rows(data);
 	flood_fill(map_dup, size, p_position);
-	check_flood_fill(map_dup, map);
-	free_map(map_dup);
+	check_flood_fill(map_dup, data);
 }
 
-t_point	find_p_position(char **map)
+t_point	find_p_position(t_vars *data)
 {
 	t_point	p_position;
 	int		i;
@@ -46,12 +43,12 @@ t_point	find_p_position(char **map)
 	p_position.y = -1;
 	i = 0;
 	j = 0;
-	while (map[i] != NULL)
+	while (data->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0')
+		while (data->map[i][j] != '\0')
 		{
-			if (map[i][j] == 'P')
+			if (data->map[i][j] == 'P')
 			{
 				p_position.x = j;
 				p_position.y = i;
@@ -81,7 +78,7 @@ void	fill(char **tab, t_point size, t_point cur, char to_fill)
 	fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
 }
 
-void	check_flood_fill(char **map_dup, char **map)
+void	check_flood_fill(char **map_dup, t_vars *data)
 {
 	int	i;
 	int	j;
@@ -94,8 +91,8 @@ void	check_flood_fill(char **map_dup, char **map)
 		{
 			if (map_dup[i][j] != 'F' && map_dup[i][j] != '1')
 			{
-				free_map(map_dup);
-				error_handling(5, map);
+				free_map_dup(map_dup);
+				error_handling(5, data);
 			}
 			j++;
 		}

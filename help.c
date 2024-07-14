@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:56:01 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/11 16:02:57 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 12:51:29 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,45 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-int	counting_rows(char **map)
+int	counting_rows(t_vars *data)
 {
 	int	rows;
 
 	rows = 0;
-	while (map[rows] != NULL)
+	while (data->map[rows] != NULL)
 		rows++;
 	return (rows);
 }
 
-int	counting_columns(char **map)
+int	counting_columns(t_vars *data)
 {
 	int	colums;
 
 	colums = 0;
-	while (map[0][colums] != '\0')
+	while (data->map[0][colums] != '\0')
 		colums++;
 	return (colums - 1);
 }
 
-int	counting_columns2(char **map, int which_row)
+int	counting_columns2(t_vars *data, int which_row)
 {
 	int	colums;
 
 	colums = 0;
-	while (map[which_row][colums] != '\0' && map[which_row][colums] != '\n')
+	while (data->map[which_row][colums] != '\0'
+		&& data->map[which_row][colums] != '\n')
 		colums++;
 	return (colums);
 }
 
-char	**duplicate_map(char **map, char **map_dup)
+char	**duplicate_map(t_vars *data, char **map_dup)
 {
 	int	i;
 
 	i = 0;
-	while (map[i] != NULL)
+	while (data->map[i] != NULL)
 	{
-		map_dup[i] = ft_strdup(map[i]);
+		map_dup[i] = ft_strdup(data->map[i]);
 		i++;
 	}
 	map_dup[i] = NULL;

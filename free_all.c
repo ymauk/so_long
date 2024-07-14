@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:02:41 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 16:46:54 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 13:11:29 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,17 @@ void	free_all(t_vars *data)
 		free(data->textures[i]);
 		i++;
 	}
+}
+
+void	free_map_dup(char **map_dup)
+{
+	int	i;
+
+	i = 0;
+	while (map_dup[i] != NULL)
+	{
+		free (map_dup[i]);
+		i++;
+	}
+	free (map_dup);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking_map3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:02:00 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/08 15:14:06 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 13:11:14 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,21 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	checking_valid_characters(char **map)
+void	checking_valid_characters(t_vars *data)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map[i] != NULL)
+	while (data->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0' && map[i][j] != '\n')
+		while (data->map[i][j] != '\0' && data->map[i][j] != '\n')
 		{
-			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
-			&& map[i][j] != 'P' && map[i][j] != 'E')
-				error_handling(4, map);
+			if (data->map[i][j] != '0' && data->map[i][j] != '1'
+			&& data->map[i][j] != 'C' && data->map[i][j] != 'P'
+			&& data->map[i][j] != 'E')
+				error_handling(4, data);
 			j++;
 		}
 		i++;

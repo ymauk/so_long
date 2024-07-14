@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 16:47:10 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 13:00:37 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	error_handling(int number_error, char **map)
+void	error_handling(int number_error, t_vars *data)
 {
 	if (number_error == 0)
 		ft_printf("Your arguments are not valid!\n");
@@ -38,6 +38,6 @@ void	error_handling(int number_error, char **map)
 		ft_printf("texture to image has failed!\n");
 	else if (number_error == 9)
 		ft_printf("image to window has failed!\n");
-	free_all(map);
+	free_all(data);
 	exit(1);
 }

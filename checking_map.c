@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:29 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/09 11:47:01 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 13:00:17 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,35 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	checking_map(char **map)
+void	checking_map(t_vars *data)
 {
-	checking_contain(map);
-	checking_rectangle(map);
-	checking_walls(map);
-	checking_valid_characters(map);
-	checking_accessibility(map);
+	checking_contain(data);
+	checking_rectangle(data);
+	checking_walls(data);
+	checking_valid_characters(data);
+	checking_accessibility(data);
 }
 
-void	checking_contain(char **map)
+void	checking_contain(t_vars *data)
 {
 	char	ecp;
 	int		counter;
 
 	ecp = 'E';
-	counter = checking_contain2(map, ecp);
+	counter = checking_contain2(data, ecp);
 	if (counter != 1)
-		error_handling(1, map);
+		error_handling(1, data);
 	ecp = 'C';
-	counter = checking_contain2(map, ecp);
+	counter = checking_contain2(data, ecp);
 	if (counter < 1)
-		error_handling(1, map);
+		error_handling(1, data);
 	ecp = 'P';
-	counter = checking_contain2(map, ecp);
+	counter = checking_contain2(data, ecp);
 	if (counter != 1)
-		error_handling(1, map);
+		error_handling(1, data);
 }
 
-int	checking_contain2(char **map, char ecp)
+int	checking_contain2(t_vars *data, char ecp)
 {
 	int	counter;
 	int	i;
@@ -52,12 +52,12 @@ int	checking_contain2(char **map, char ecp)
 
 	counter = 0;
 	i = 0;
-	while (map[i] != NULL)
+	while (data->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0')
+		while (data->map[i][j] != '\0')
 		{
-			if (map[i][j] == ecp)
+			if (data->map[i][j] == ecp)
 				counter += 1;
 			j++;
 		}
@@ -66,24 +66,24 @@ int	checking_contain2(char **map, char ecp)
 	return (counter);
 }
 
-void	checking_rectangle(char **map)
+void	checking_rectangle(t_vars *data)
 {
 	int	i;
 	int	number_first_column;
 	int	number_rest_column;
 
 	i = 1;
-	number_first_column = counting_columns2(map, 0);
-	while (map[i] != NULL)
+	number_first_column = counting_columns2(data, 0);
+	while (data->map[i] != NULL)
 	{
-		number_rest_column = counting_columns2(map, i);
+		number_rest_column = counting_columns2(data, i);
 		if (number_first_column != number_rest_column)
-			error_handling(2, map);
+			error_handling(2, data);
 		i++;
 	}
 }
 
-void	checking_walls(char **map)
+void	checking_walls(t_vars *data)
 {
 	int	j;
 	int	i;
@@ -91,16 +91,16 @@ void	checking_walls(char **map)
 	int	columns;
 
 	i = 0;
-	rows = counting_rows(map);
-	columns = counting_columns(map);
-	while (map[i] != NULL)
+	rows = counting_rows(data);
+	columns = counting_columns(data);
+	while (data->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0' && map[i][j] != '\n')
+		while (data->map[i][j] != '\0' && data->map[i][j] != '\n')
 		{
-			if (map[0][j] != '1' || map[rows - 1][j] != '1' ||
-				map[i][0] != '1' || map[i][columns - 1] != '1')
-				error_handling(3, map);
+			if (data->map[0][j] != '1' || data->map[rows - 1][j] != '1' ||
+				data->map[i][0] != '1' || data->map[i][columns - 1] != '1')
+				error_handling(3, data);
 			j++;
 		}
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:10:36 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/10 13:03:11 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 12:33:39 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-char	**start(int argc, char **argv)
+void	start(int argc, char **argv, t_vars *data)
 {
-	char	**created_map;
 
-	created_map = NULL;
+	data->map = NULL;
 	if (argc == 2)
 	{
 		if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
-			error_handling(0, created_map);
-		created_map = map(argv);
-		checking_map(created_map);
+			error_handling(0, data);
+		checking_map(data);
 	}
 	else
-		error_handling(0, created_map);
-	return (created_map);
+		error_handling(0, data);
 }

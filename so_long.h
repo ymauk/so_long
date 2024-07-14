@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:05:20 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 16:44:00 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 13:06:26 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,35 +57,36 @@ typedef struct s_vars
 
 }	t_vars;
 
-char		**map(char **argv);
+void		map(char **argv, t_vars *data);
 int			count_rows(int fd);
 int			count_rows2(char *part_buffer, int counter, int i);
 
-void		checking_map(char **map);
-void		checking_contain(char **map);
-int			checking_contain2(char **map, char ecp);
-void		checking_rectangle(char **map);
-void		checking_walls(char **map);
+void		checking_map(t_vars *data);
+void		checking_contain(t_vars *data);
+int			checking_contain2(t_vars *data, char ecp);
+void		checking_rectangle(t_vars *data);
+void		checking_walls(t_vars *data);
 
-void		checking_accessibility(char **map);
-t_point		find_p_position(char **map);
+void		checking_accessibility(t_vars *data);
+t_point		find_p_position(t_vars *data);
 void		flood_fill(char **tab, t_point size, t_point begin);
 void		fill(char **tab, t_point size, t_point cur, char to_fill);
-void		check_flood_fill(char **map_dup, char **map);
+void		check_flood_fill(char **map_dup, t_vars *data);
 
-void		checking_valid_characters(char **map);
+void		checking_valid_characters(t_vars *data);
 
-int			counting_rows(char **map);
-int			counting_columns(char **map);
-int			counting_columns2(char **map, int which_row);
-char		**duplicate_map(char **map, char **map_dup);
+int			counting_rows(t_vars *data);
+int			counting_columns(t_vars *data);
+int			counting_columns2(t_vars *data, int which_row);
+char		**duplicate_map(t_vars *data, char **map_dup);
 void		find_player(t_vars *data);
 
-void		error_handling(int number_error, char **map);
+void		error_handling(int number_error, t_vars *data);
 
-void		free_all(t_vars *data);;
+void		free_all(t_vars *data);
+void	free_map_dup(char **map_dup);
 
-void		window_size(char **created_map, t_window *size_w);
+void		window_size(t_vars *data, t_window *size_w);
 void		collectable_exit(t_vars *data, int x, int y);
 void		check_z_instances(t_vars *data);
 void		display_text(t_vars *data);
@@ -95,7 +96,7 @@ void		place_c_e(t_vars *data);
 void		place_g_w(t_vars *data);
 void		place_p(t_vars *data);
 
-char		**start(int argc, char **argv);
+void		start(int argc, char **argv, t_vars *data);
 
 void		keyhook(mlx_key_data_t keydata, void *param);
 void		move_up(t_vars *data);

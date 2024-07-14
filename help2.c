@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yannismauk <yannismauk@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 12:49:28 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/12 16:06:59 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/14 13:13:34 by yannismauk       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void	window_size(char **created_map, t_window *size_w)
+void	window_size(t_vars *data, t_window *size_w)
 {
-	size_w->x = counting_columns(created_map);
-	size_w->y = counting_rows(created_map);
+	size_w->x = counting_columns(data);
+	size_w->y = counting_rows(data);
 }
 
 void	collectable_exit(t_vars *data, int x, int y)
@@ -34,12 +34,12 @@ void	collectable_exit(t_vars *data, int x, int y)
 		data->map[y][x] = '0';
 		data->texture = mlx_load_png("./textures/ground.png");
 		if (!data->texture)
-			error_handling(7, data->map);
+			error_handling(7, data);
 		data->img = mlx_texture_to_image(data->mlx, data->texture);
 		if (!data->img)
-			error_handling(8, data->map);
+			error_handling(8, data);
 		if (mlx_image_to_window(data->mlx, data->img, size_w.x, size_w.y) > 0)
-			error_handling(9, data->map);
+			error_handling(9, data);
 		check_z_instances(data);
 	}
 	if (data->map[y][x] == 'E' && data->c_counter == data->amount_c)
@@ -68,9 +68,9 @@ void	display_text(t_vars *data)
 	int	x2;
 	int	y2;
 
-	x1 = ((counting_columns(data->map) + 125) / 2);
-	y1 = (counting_rows(data->map));
-	x2 = (counting_columns(data->map) + 115 / 2);
+	x1 = ((counting_columns(data) + 125) / 2);
+	y1 = (counting_rows(data));
+	x2 = (counting_columns(data) + 115 / 2);
 	y2 = y1 + 30;
 	place_g_w(data);
 	mlx_put_string(data->mlx, "Congratulations, you won :)", x1, y2);
