@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:35:11 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:41:39 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 13:05:51 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	checking_accessibility(t_vars *data)
 	size.y = counting_rows(data);
 	flood_fill(map_dup, size, p_position);
 	check_flood_fill(map_dup, data);
+	free_map_dup(map_dup);
 }
 
 t_point	find_p_position(t_vars *data)
@@ -89,7 +90,8 @@ void	check_flood_fill(char **map_dup, t_vars *data)
 		j = 0;
 		while (map_dup[i][j] != '\0' && map_dup[i][j] != '\n')
 		{
-			if (map_dup[i][j] != 'F' && map_dup[i][j] != '1')
+			if (map_dup[i][j] != 'F' && map_dup[i][j] != '1'
+				&& map_dup[i][j] != '0')
 			{
 				free_map_dup(map_dup);
 				error_handling(5, data);

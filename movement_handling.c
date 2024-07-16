@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_handling.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:49:04 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 11:05:37 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 09:20:01 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,7 @@ void	keyhook(mlx_key_data_t keydata, void *param)
 
 void	move_up(t_vars *data)
 {
-	int	x;
-	int	y;
-
-	x = data->p_x / 32;
-	y = data->p_y / 32;
-	if (y > 0 && data->map[(data->p_y / 32) - 1][data->p_x / 32] != '1')
+	if (data->p_y > 0 && data->map[(data->p_y / 32) - 1][data->p_x / 32] != '1')
 	{
 		data->image[P]->instances->y -= 32;
 		data->p_x = data->image[P]->instances->x;

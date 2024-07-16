@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:02:41 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 09:11:18 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 15:13:03 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	free_all(t_vars *data)
 		i = 0;
 		while (i < TEXTURES)
 		{
-			free(data->textures[i]);
+			if (data->textures[i] != NULL)
+			{
+				mlx_delete_texture(data->textures[i]);
+			}
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:42:10 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 13:14:25 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	error_handling(int number_error, t_vars *data)
 		ft_printf("texture to image has failed!\n");
 	else if (number_error == 9)
 		ft_printf("image to window has failed!\n");
+	else if (number_error == 10)
+		ft_printf("Your map is not valid!\n");
 	free_all(data);
 	exit(1);
 }

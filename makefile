@@ -40,3 +40,7 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# -L/Users/ymauk/LeakSanitizer -llsan
+
+# -fsanitize=address

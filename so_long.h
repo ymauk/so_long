@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:05:20 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:43:54 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 15:50:56 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void		window_size(t_vars *data, t_window *size_w);
 void		collectable_exit(t_vars *data, int x, int y);
 void		check_z_instances(t_vars *data);
 void		display_text(t_vars *data);
+void		null_everything(t_vars *data);
 
 void		handling_images(t_vars *data);
 void		place_c_e(t_vars *data);

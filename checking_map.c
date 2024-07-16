@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:29 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:41:03 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 15:50:01 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	checking_contain2(t_vars *data, char ecp)
 	while (data->map[i] != NULL)
 	{
 		j = 0;
-		while (data->map[i][j] != '\0')
+		while (data->map[i][j] != '\0' && data->map[i][j] != '\n')
 		{
 			if (data->map[i][j] == ecp)
 				counter += 1;

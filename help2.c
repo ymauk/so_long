@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 12:49:28 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 11:05:30 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 16:26:36 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	collectable_exit(t_vars *data, int x, int y)
 {
 	if (data->map[y][x] == 'C')
 	{
+		data->map[y][x] = '0';
 		data->c_counter += 1;
 		mlx_image_to_window(data->mlx, data->image[G], x * 32, y * 32);
 		check_z_instances(data);
@@ -56,24 +57,23 @@ void	display_text(t_vars *data)
 	int	x2;
 	int	y2;
 
-	x1 = ((counting_columns(data) + 125) / 2);
-	y1 = (counting_rows(data));
-	x2 = (counting_columns(data) + 115 / 2);
+	x1 = ((counting_columns(data) * 32) - (30 * 8)) / 2;
+	y1 = counting_rows(data) / 2 - 15;
+	x2 = ((counting_columns(data) * 32) - (27 * 8)) / 2;
 	y2 = y1 + 30;
 	place_g_w(data);
 	mlx_put_string(data->mlx, "Congratulations, you won :)", x1, y2);
-	mlx_put_string(data->mlx, "Please press enter to exit!", x2, y2 + 60);
+	mlx_put_string(data->mlx, "Press exit to leave!", x2, y2 + 60);
 }
 
+void	null_everything(t_vars *data)
+{
+	int	i;
 
-// data->c_counter += 1;
-// 		data->map[y][x] = '0';
-// 		data->texture = mlx_load_png("./textures/ground.png");
-// 		if (!data->texture)
-// 			error_handling(7, data);
-// 		data->img = mlx_texture_to_image(data->mlx, data->texture);
-// 		if (!data->img)
-// 			error_handling(8, data);
-// 		if (mlx_image_to_window(data->mlx, data->img, size_w.x, size_w.y) > 0)
-// 			error_handling(9, data);
-// 		check_z_instances(data);
+	i = 0;
+	while (i < TEXTURES)
+	{
+		data->textures[i] = NULL;
+		i++;
+	}
+}
