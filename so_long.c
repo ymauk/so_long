@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:13:55 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:42:46 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 10:31:54 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char **argv)
 	data.c_counter = 0;
 	data.amount_c = 0;
 	handling_images(&data);
-	data.player_img = data.image[P];
 	// display_counter(&data);
 	mlx_key_hook(data.mlx, keyhook, &data);
 	mlx_loop(data.mlx);
@@ -37,3 +36,6 @@ int	main(int argc, char **argv)
 	mlx_terminate(data.mlx);
 	return (0);
 }
+
+// #brot taucht wieder auf wenn player über die stelle zurück drüber läuft
+// #evtl einen neuen Folder kreieren

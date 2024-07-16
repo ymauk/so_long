@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:10:36 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:43:03 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 09:09:49 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 
 void	start(int argc, char **argv, t_vars *data)
 {
-
-	data->map = NULL;
 	if (argc == 2)
 	{
 		if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
 			error_handling(0, data);
+		map(argv, data);
 		checking_map(data);
 	}
 	else

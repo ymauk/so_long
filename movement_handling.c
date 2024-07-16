@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:49:04 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:42:43 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 11:05:37 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,67 +44,52 @@ void	move_up(t_vars *data)
 
 	x = data->p_x / 32;
 	y = data->p_y / 32;
-	if (y > 0 && data->map[y - 1][x] != '1')
+	if (y > 0 && data->map[(data->p_y / 32) - 1][data->p_x / 32] != '1')
 	{
-		data->player_img->instances[0].y -= 32;
-		data->p_x = data->player_img->instances[0].x;
-		data->p_y = data->player_img->instances[0].y;
+		data->image[P]->instances->y -= 32;
+		data->p_x = data->image[P]->instances->x;
+		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, x, y - 1);
+		collectable_exit(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
 
 void	move_down(t_vars *data)
 {
-	int	x;
-	int	y;
-
-	x = data->p_x / 32;
-	y = data->p_y / 32;
-	if (data->map[y + 1][x] != '1')
+	if (data->map[(data->p_y / 32) + 1][data->p_x / 32] != '1')
 	{
-		data->player_img->instances[0].y += 32;
-		data->p_x = data->player_img->instances[0].x;
-		data->p_y = data->player_img->instances[0].y;
+		data->image[P]->instances->y += 32;
+		data->p_x = data->image[P]->instances->x;
+		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, x, y + 1);
+		collectable_exit(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
 
 void	move_left(t_vars *data)
 {
-	int	x;
-	int	y;
-
-	x = data->p_x / 32;
-	y = data->p_y / 32;
-	if (data->map[y][x - 1] != '1')
+	if (data->map[data->p_y / 32][(data->p_x / 32) - 1] != '1')
 	{
-		data->player_img->instances[0].x -= 32;
-		data->p_x = data->player_img->instances[0].x;
-		data->p_y = data->player_img->instances[0].y;
+		data->image[P]->instances->x -= 32;
+		data->p_x = data->image[P]->instances->x;
+		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, x - 1, y);
+		collectable_exit(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
 
 void	move_right(t_vars *data)
 {
-	int	x;
-	int	y;
-
-	x = data->p_x / 32;
-	y = data->p_y / 32;
-	if (data->map[y][x + 1] != '1')
+	if (data->map[data->p_y / 32][(data->p_x / 32) + 1] != '1')
 	{
-		data->player_img->instances[0].x += 32;
-		data->p_x = data->player_img->instances[0].x;
-		data->p_y = data->player_img->instances[0].y;
+		data->image[P]->instances->x += 32;
+		data->p_x = data->image[P]->instances->x;
+		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, x + 1, y);
+		collectable_exit(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }

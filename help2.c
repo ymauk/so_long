@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 12:49:28 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/14 17:42:29 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/16 11:05:30 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,10 @@ void	window_size(t_vars *data, t_window *size_w)
 
 void	collectable_exit(t_vars *data, int x, int y)
 {
-	t_window	size_w;
-
-	size_w.x = x * 32;
-	size_w.y = y * 32;
 	if (data->map[y][x] == 'C')
 	{
 		data->c_counter += 1;
-		data->map[y][x] = '0';
-		data->texture = mlx_load_png("./textures/ground.png");
-		if (!data->texture)
-			error_handling(7, data);
-		data->img = mlx_texture_to_image(data->mlx, data->texture);
-		if (!data->img)
-			error_handling(8, data);
-		if (mlx_image_to_window(data->mlx, data->img, size_w.x, size_w.y) > 0)
-			error_handling(9, data);
+		mlx_image_to_window(data->mlx, data->image[G], x * 32, y * 32);
 		check_z_instances(data);
 	}
 	if (data->map[y][x] == 'E' && data->c_counter == data->amount_c)
@@ -55,9 +43,9 @@ void	check_z_instances(t_vars *data)
 
 	i = 0;
 	z = 0;
-	while (data->image[P]->instances[i].z < data->image[G]->instances[0].z)
+	while (data->image[G]->instances[i].z < data->image[P]->instances[0].z)
 		i++;
-	z = data->image[P]->instances[i].z + 1;
+	z = data->image[G]->instances[i].z + 1;
 	data->image[P]->instances[0].z = z;
 }
 
@@ -76,3 +64,16 @@ void	display_text(t_vars *data)
 	mlx_put_string(data->mlx, "Congratulations, you won :)", x1, y2);
 	mlx_put_string(data->mlx, "Please press enter to exit!", x2, y2 + 60);
 }
+
+
+// data->c_counter += 1;
+// 		data->map[y][x] = '0';
+// 		data->texture = mlx_load_png("./textures/ground.png");
+// 		if (!data->texture)
+// 			error_handling(7, data);
+// 		data->img = mlx_texture_to_image(data->mlx, data->texture);
+// 		if (!data->img)
+// 			error_handling(8, data);
+// 		if (mlx_image_to_window(data->mlx, data->img, size_w.x, size_w.y) > 0)
+// 			error_handling(9, data);
+// 		check_z_instances(data);
