@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:56:01 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/19 09:43:47 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:12:29 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	counting_columns2(t_vars *data, int which_row)
 	while (data->map[which_row][colums] != '\0'
 		&& data->map[which_row][colums] != '\n')
 		colums++;
-	printf("colums: %d\n", colums);
 	return (colums);
 }
 
@@ -64,7 +63,6 @@ char	**duplicate_map(t_vars *data, char **map_dup)
 	map_dup[i] = NULL;
 	return (map_dup);
 }
-
 
 void	find_player(t_vars *data)
 {

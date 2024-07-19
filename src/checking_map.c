@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:29 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/19 09:41:36 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:59:44 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,9 @@ void	checking_rectangle(t_vars *data)
 
 	i = 1;
 	number_first_column = counting_columns2(data, 0);
-	printf("first column: %d\n", number_first_column);
 	while (data->map[i] != NULL)
 	{
 		number_rest_column = counting_columns2(data, i);
-		printf("rest column: %d\n", number_rest_column);
 		if (number_first_column != number_rest_column)
 			error_handling(2, data);
 		i++;

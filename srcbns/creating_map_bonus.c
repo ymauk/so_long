@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:54:50 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/19 10:06:05 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:32:27 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	map_b(char **argv, t_vars *data)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		error_handling_b(10, data);
-	data->map = (char **)malloc((rows_in_map) * sizeof(char *));
+	data->map = (char **)malloc((rows_in_map + 1) * sizeof(char *));
 	if (data->map == NULL)
 		error_handling_b(6, data);
 	i = 0;

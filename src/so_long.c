@@ -6,7 +6,7 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:13:55 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/18 19:02:22 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:57:56 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	main(int argc, char **argv)
 	mlx_loop(data.mlx);
 	free_all(&data);
 	mlx_terminate(data.mlx);
-	// system("leaks so_long");
 	return (0);
 }
