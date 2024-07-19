@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checking_map2.c                                    :+:      :+:    :+:   */
+/*   checking_map2_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:35:11 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 13:05:51 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 13:44:08 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long_bonus.h"
 
 void	checking_accessibility(t_vars *data)
 {

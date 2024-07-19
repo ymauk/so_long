@@ -6,15 +6,11 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:13:55 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 15:27:08 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/18 19:02:22 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long.h"
 
 int	main(int argc, char **argv)
 {
@@ -23,6 +19,8 @@ int	main(int argc, char **argv)
 
 	null_everything(&data);
 	start(argc, argv, &data);
+	if (data.map == NULL)
+		error_handling(6, &data);
 	window_size(&data, &size_w);
 	data.mlx = mlx_init(size_w.x * 32, size_w.y * 32, "so_long", true);
 	mlx_set_window_limit(data.mlx, size_w.x * 32,
@@ -30,10 +28,10 @@ int	main(int argc, char **argv)
 	data.c_counter = 0;
 	data.amount_c = 0;
 	handling_images(&data);
-	// display_counter(&data);
 	mlx_key_hook(data.mlx, keyhook, &data);
 	mlx_loop(data.mlx);
 	free_all(&data);
 	mlx_terminate(data.mlx);
+	// system("leaks so_long");
 	return (0);
 }

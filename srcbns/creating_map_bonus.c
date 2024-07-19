@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   creating_map.c                                     :+:      :+:    :+:   */
+/*   creating_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:54:50 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 13:23:55 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 17:51:39 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long_bonus.h"
 
 void	map(char **argv, t_vars *data)
 {
@@ -30,7 +26,7 @@ void	map(char **argv, t_vars *data)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		error_handling(10, data);
-	data->map = (char **)malloc((rows_in_map) * sizeof(char));
+	data->map = (char **)malloc((rows_in_map) * sizeof(char *));
 	if (data->map == NULL)
 		error_handling(6, data);
 	i = 0;
@@ -42,7 +38,6 @@ void	map(char **argv, t_vars *data)
 	data->map[i] = NULL;
 	close (fd);
 }
-
 
 int	count_rows(int fd)
 {

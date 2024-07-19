@@ -6,15 +6,11 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 12:49:28 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 16:26:36 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 17:04:16 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long.h"
 
 void	window_size(t_vars *data, t_window *size_w)
 {
@@ -71,6 +67,7 @@ void	null_everything(t_vars *data)
 	int	i;
 
 	i = 0;
+	data->map = NULL;
 	while (i < TEXTURES)
 	{
 		data->textures[i] = NULL;

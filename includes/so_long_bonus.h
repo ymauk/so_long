@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:05:20 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 15:50:56 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 13:37:37 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-# include "lib/Libft/libft.h"
-# include "lib/printf/ft_printf.h"
-# include "lib/get_next_line/get_next_line.h"
-# include "lib/libmlx/include/MLX42/MLX42.h"
+# include "../lib/Libft/libft.h"
+# include "../lib/printf/ft_printf.h"
+# include "../lib/get_next_line/get_next_line.h"
+# include "../lib/libmlx/include/MLX42/MLX42.h"
+# include <stdlib.h>
+# include <fcntl.h>
 
-# define TEXTURES			5
+# define TEXTURES			6
 # define G					0
 # define P					1
 # define W					2
 # define C					3
 # define E					4
+# define X					5
 
 typedef struct s_point
 {
@@ -52,6 +55,8 @@ typedef struct s_vars
 	int				counter;
 	int				p_x;
 	int				p_y;
+	int				x_x;
+	int				x_y;
 	int				amount_c;
 	int				c_counter;
 
@@ -74,6 +79,9 @@ void		fill(char **tab, t_point size, t_point cur, char to_fill);
 void		check_flood_fill(char **map_dup, t_vars *data);
 
 void		checking_valid_characters(t_vars *data);
+void		place_x(t_vars *data);
+void		display_text_lose(t_vars *data);
+void		window_size(t_vars *data, t_window *size_w);
 
 int			counting_rows(t_vars *data);
 int			counting_columns(t_vars *data);
@@ -86,8 +94,7 @@ void		error_handling(int number_error, t_vars *data);
 void		free_all(t_vars *data);
 void		free_map_dup(char **map_dup);
 
-void		window_size(t_vars *data, t_window *size_w);
-void		collectable_exit(t_vars *data, int x, int y);
+void		collectable_exit_enemy(t_vars *data, int x, int y);
 void		check_z_instances(t_vars *data);
 void		display_text(t_vars *data);
 void		null_everything(t_vars *data);

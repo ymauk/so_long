@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image_handling.c                                   :+:      :+:    :+:   */
+/*   image_handling_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:06:16 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 13:07:54 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 13:49:33 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long_bonus.h"
 
 void	create_images(t_vars *data)
 {
@@ -23,11 +19,13 @@ void	create_images(t_vars *data)
 	data->textures[W] = mlx_load_png("textures/wall.png");
 	data->textures[G] = mlx_load_png("textures/ground.png");
 	data->textures[E] = mlx_load_png("textures/exit.png");
+	data->textures[X] = mlx_load_png("textures/enemy.png");
 	data->image[P] = mlx_texture_to_image(data->mlx, data->textures[P]);
 	data->image[C] = mlx_texture_to_image(data->mlx, data->textures[C]);
 	data->image[W] = mlx_texture_to_image(data->mlx, data->textures[W]);
 	data->image[G] = mlx_texture_to_image(data->mlx, data->textures[G]);
 	data->image[E] = mlx_texture_to_image(data->mlx, data->textures[E]);
+	data->image[X] = mlx_texture_to_image(data->mlx, data->textures[X]);
 }
 
 void	handling_images(t_vars *data)
@@ -35,6 +33,7 @@ void	handling_images(t_vars *data)
 	create_images(data);
 	place_g_w(data);
 	place_c_e(data);
+	place_x(data);
 	place_p(data);
 }
 

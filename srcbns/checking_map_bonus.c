@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checking_map.c                                     :+:      :+:    :+:   */
+/*   checking_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:29 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 15:50:01 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 13:44:04 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long_bonus.h"
 
 void	checking_map(t_vars *data)
 {
@@ -27,19 +23,23 @@ void	checking_map(t_vars *data)
 
 void	checking_contain(t_vars *data)
 {
-	char	ecp;
+	char	ecpx;
 	int		counter;
 
-	ecp = 'E';
-	counter = checking_contain2(data, ecp);
+	ecpx = 'E';
+	counter = checking_contain2(data, ecpx);
 	if (counter != 1)
 		error_handling(1, data);
-	ecp = 'C';
-	counter = checking_contain2(data, ecp);
+	ecpx = 'C';
+	counter = checking_contain2(data, ecpx);
 	if (counter < 1)
 		error_handling(1, data);
-	ecp = 'P';
-	counter = checking_contain2(data, ecp);
+	ecpx = 'P';
+	counter = checking_contain2(data, ecpx);
+	if (counter != 1)
+		error_handling(1, data);
+	ecpx = 'X';
+	counter = checking_contain2(data, ecpx);
 	if (counter != 1)
 		error_handling(1, data);
 }

@@ -6,15 +6,11 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:02:00 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 15:51:35 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 13:43:29 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long.h"
 
 void	checking_valid_characters(t_vars *data)
 {

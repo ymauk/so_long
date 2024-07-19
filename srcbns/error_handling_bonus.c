@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling.c                                   :+:      :+:    :+:   */
+/*   error_handling_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 13:14:25 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/17 13:44:20 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long_bonus.h"
 
 void	error_handling(int number_error, t_vars *data)
 {
 	if (number_error == 0)
 		ft_printf("Your arguments are not valid!\n");
 	if (number_error == 1)
-		ft_printf("Your map is not correctly filled with C.E.Ps!\n");
+		ft_printf("Your map is not correctly filled with C.E.P.X.s!\n");
 	else if (number_error == 2)
 		ft_printf("Your map is not rectangular!\n");
 	else if (number_error == 3)

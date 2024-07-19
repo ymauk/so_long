@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement_handling.c                                :+:      :+:    :+:   */
+/*   movement_handling_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:49:04 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/16 09:20:01 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/07/17 13:44:37 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "../includes/so_long_bonus.h"
 
 void	keyhook(mlx_key_data_t keydata, void *param)
 {
@@ -45,7 +41,7 @@ void	move_up(t_vars *data)
 		data->p_x = data->image[P]->instances->x;
 		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, data->p_x / 32, data->p_y / 32);
+		collectable_exit_enemy(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
@@ -58,7 +54,7 @@ void	move_down(t_vars *data)
 		data->p_x = data->image[P]->instances->x;
 		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, data->p_x / 32, data->p_y / 32);
+		collectable_exit_enemy(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
@@ -71,7 +67,7 @@ void	move_left(t_vars *data)
 		data->p_x = data->image[P]->instances->x;
 		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, data->p_x / 32, data->p_y / 32);
+		collectable_exit_enemy(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
@@ -84,7 +80,7 @@ void	move_right(t_vars *data)
 		data->p_x = data->image[P]->instances->x;
 		data->p_y = data->image[P]->instances->y;
 		data->counter++;
-		collectable_exit(data, data->p_x / 32, data->p_y / 32);
+		collectable_exit_enemy(data, data->p_x / 32, data->p_y / 32);
 		ft_printf("Steps made: %d\n", data->counter);
 	}
 }
