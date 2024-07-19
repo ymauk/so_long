@@ -6,13 +6,13 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:56:01 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/17 13:44:26 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:03:57 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-int	counting_rows(t_vars *data)
+int	counting_rows_b(t_vars *data)
 {
 	int	rows;
 
@@ -22,7 +22,7 @@ int	counting_rows(t_vars *data)
 	return (rows);
 }
 
-int	counting_columns(t_vars *data)
+int	counting_columns_b(t_vars *data)
 {
 	int	colums;
 
@@ -32,7 +32,7 @@ int	counting_columns(t_vars *data)
 	return (colums - 1);
 }
 
-int	counting_columns2(t_vars *data, int which_row)
+int	counting_columns2_b(t_vars *data, int which_row)
 {
 	int	colums;
 
@@ -43,7 +43,7 @@ int	counting_columns2(t_vars *data, int which_row)
 	return (colums);
 }
 
-char	**duplicate_map(t_vars *data, char **map_dup)
+char	**duplicate_map_b(t_vars *data, char **map_dup)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ char	**duplicate_map(t_vars *data, char **map_dup)
 	return (map_dup);
 }
 
-void	find_player(t_vars *data)
+void	find_player_b(t_vars *data)
 {
 	int	i;
 	int	j;

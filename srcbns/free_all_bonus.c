@@ -6,13 +6,13 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:02:41 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/17 13:44:23 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:03:43 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	free_all(t_vars *data)
+void	free_all_b(t_vars *data)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ void	free_all(t_vars *data)
 	}
 }
 
-void	free_map_dup(char **map_dup)
+void	free_map_dup_b(char **map_dup)
 {
 	int	i;
 

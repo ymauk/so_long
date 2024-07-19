@@ -6,13 +6,13 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:03:08 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/17 13:44:20 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:03:29 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	error_handling(int number_error, t_vars *data)
+void	error_handling_b(int number_error, t_vars *data)
 {
 	if (number_error == 0)
 		ft_printf("Your arguments are not valid!\n");
@@ -36,6 +36,6 @@ void	error_handling(int number_error, t_vars *data)
 		ft_printf("image to window has failed!\n");
 	else if (number_error == 10)
 		ft_printf("Your map is not valid!\n");
-	free_all(data);
+	free_all_b(data);
 	exit(1);
 }

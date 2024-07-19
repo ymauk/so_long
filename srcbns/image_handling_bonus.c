@@ -6,13 +6,13 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:06:16 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/17 13:49:33 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:04:58 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	create_images(t_vars *data)
+void	create_images_b(t_vars *data)
 {
 	data->textures[P] = mlx_load_png("textures/player.png");
 	data->textures[C] = mlx_load_png("textures/collectable.png");
@@ -28,16 +28,16 @@ void	create_images(t_vars *data)
 	data->image[X] = mlx_texture_to_image(data->mlx, data->textures[X]);
 }
 
-void	handling_images(t_vars *data)
+void	handling_images_b(t_vars *data)
 {
-	create_images(data);
-	place_g_w(data);
-	place_c_e(data);
-	place_x(data);
-	place_p(data);
+	create_images_b(data);
+	place_g_w_b(data);
+	place_c_e_b(data);
+	place_x_b(data);
+	place_p_b(data);
 }
 
-void	place_g_w(t_vars *data)
+void	place_g_w_b(t_vars *data)
 {
 	int	i;
 	int	j;
@@ -55,7 +55,7 @@ void	place_g_w(t_vars *data)
 	}
 }
 
-void	place_c_e(t_vars *data)
+void	place_c_e_b(t_vars *data)
 {
 	int	i;
 	int	j;
@@ -81,7 +81,7 @@ void	place_c_e(t_vars *data)
 	}
 }
 
-void	place_p(t_vars *data)
+void	place_p_b(t_vars *data)
 {
 	int	i;
 	int	j;

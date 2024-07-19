@@ -6,13 +6,13 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:54:50 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/17 17:51:39 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:06:05 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	map(char **argv, t_vars *data)
+void	map_b(char **argv, t_vars *data)
 {
 	int		rows_in_map;
 	int		fd;
@@ -20,15 +20,15 @@ void	map(char **argv, t_vars *data)
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		error_handling(10, data);
-	rows_in_map = count_rows(fd);
+		error_handling_b(10, data);
+	rows_in_map = count_rows_b(fd);
 	close(fd);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		error_handling(10, data);
+		error_handling_b(10, data);
 	data->map = (char **)malloc((rows_in_map) * sizeof(char *));
 	if (data->map == NULL)
-		error_handling(6, data);
+		error_handling_b(6, data);
 	i = 0;
 	while (rows_in_map >= i)
 	{
@@ -39,7 +39,7 @@ void	map(char **argv, t_vars *data)
 	close (fd);
 }
 
-int	count_rows(int fd)
+int	count_rows_b(int fd)
 {
 	int		number_rows;
 	char	*part_buffer;
@@ -61,13 +61,13 @@ int	count_rows(int fd)
 		}
 		part_buffer[read_buffer] = '\0';
 		i = 0;
-		number_rows = count_rows2(part_buffer, number_rows, i);
+		number_rows = count_rows2_b(part_buffer, number_rows, i);
 	}
 	free(part_buffer);
 	return (number_rows + 1);
 }
 
-int	count_rows2(char *part_buffer, int counter, int i)
+int	count_rows2_b(char *part_buffer, int counter, int i)
 {
 	while (part_buffer[i] != '\0')
 	{

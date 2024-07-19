@@ -6,45 +6,45 @@
 /*   By: ymauk <ymauk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:29 by ymauk             #+#    #+#             */
-/*   Updated: 2024/07/17 13:44:04 by ymauk            ###   ########.fr       */
+/*   Updated: 2024/07/19 10:02:02 by ymauk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	checking_map(t_vars *data)
+void	checking_map_b(t_vars *data)
 {
-	checking_contain(data);
-	checking_rectangle(data);
-	checking_walls(data);
-	checking_valid_characters(data);
-	checking_accessibility(data);
+	checking_contain_b(data);
+	checking_rectangle_b(data);
+	checking_walls_b(data);
+	checking_valid_characters_b(data);
+	checking_accessibility_b(data);
 }
 
-void	checking_contain(t_vars *data)
+void	checking_contain_b(t_vars *data)
 {
 	char	ecpx;
 	int		counter;
 
 	ecpx = 'E';
-	counter = checking_contain2(data, ecpx);
+	counter = checking_contain2_b(data, ecpx);
 	if (counter != 1)
-		error_handling(1, data);
+		error_handling_b(1, data);
 	ecpx = 'C';
-	counter = checking_contain2(data, ecpx);
+	counter = checking_contain2_b(data, ecpx);
 	if (counter < 1)
-		error_handling(1, data);
+		error_handling_b(1, data);
 	ecpx = 'P';
-	counter = checking_contain2(data, ecpx);
+	counter = checking_contain2_b(data, ecpx);
 	if (counter != 1)
-		error_handling(1, data);
+		error_handling_b(1, data);
 	ecpx = 'X';
-	counter = checking_contain2(data, ecpx);
+	counter = checking_contain2_b(data, ecpx);
 	if (counter != 1)
-		error_handling(1, data);
+		error_handling_b(1, data);
 }
 
-int	checking_contain2(t_vars *data, char ecp)
+int	checking_contain2_b(t_vars *data, char ecp)
 {
 	int	counter;
 	int	i;
@@ -66,24 +66,24 @@ int	checking_contain2(t_vars *data, char ecp)
 	return (counter);
 }
 
-void	checking_rectangle(t_vars *data)
+void	checking_rectangle_b(t_vars *data)
 {
 	int	i;
 	int	number_first_column;
 	int	number_rest_column;
 
 	i = 1;
-	number_first_column = counting_columns2(data, 0);
+	number_first_column = counting_columns2_b(data, 0);
 	while (data->map[i] != NULL)
 	{
-		number_rest_column = counting_columns2(data, i);
+		number_rest_column = counting_columns2_b(data, i);
 		if (number_first_column != number_rest_column)
-			error_handling(2, data);
+			error_handling_b(2, data);
 		i++;
 	}
 }
 
-void	checking_walls(t_vars *data)
+void	checking_walls_b(t_vars *data)
 {
 	int	j;
 	int	i;
@@ -91,8 +91,8 @@ void	checking_walls(t_vars *data)
 	int	columns;
 
 	i = 0;
-	rows = counting_rows(data);
-	columns = counting_columns(data);
+	rows = counting_rows_b(data);
+	columns = counting_columns_b(data);
 	while (data->map[i] != NULL)
 	{
 		j = 0;
@@ -100,7 +100,7 @@ void	checking_walls(t_vars *data)
 		{
 			if (data->map[0][j] != '1' || data->map[rows - 1][j] != '1' ||
 				data->map[i][0] != '1' || data->map[i][columns - 1] != '1')
-				error_handling(3, data);
+				error_handling_b(3, data);
 			j++;
 		}
 		i++;
